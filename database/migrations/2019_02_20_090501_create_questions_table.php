@@ -15,7 +15,7 @@ class CreateQuestionsTable extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->increments('id');
-            $table-unsignedInteger('user_id')->unique();
+            $table->unsignedInteger('user_id');
             $table->string('title',127);
             $table->mediumText('text');
             $table->timestamps();
