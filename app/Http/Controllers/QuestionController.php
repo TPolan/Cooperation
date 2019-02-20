@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class QuestionController extends Controller
 {
     public function index()
     {
-        return 'This is the list of questions';
+        $query = DB::table('questions')->orderBy('created_at', 'asc')->get();
+        dd($query);
     }
 
     public function show()
     {
-        return 'This is a detail of a question';
+        $query = DB::table('answers')->where('question_id', '=', '1')->get();
+        
+        $query = DB::table('questions')->where('id', '=', '1')->get();
+        dd($query);
     }
 }
