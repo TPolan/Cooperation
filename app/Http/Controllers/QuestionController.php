@@ -14,17 +14,17 @@ class QuestionController extends Controller
 
         $query =  Question::orderBy('created_at', 'asc')->get();
         $view = view('questions/index');
-        $view->content = $query;
+        $view->questions = $query;
         return $view;
     }
 
     public function show()
     {
-        \App\Answer::where('question_id', '=', '1')->get();
+/*         \App\Answer::where('question_id', '=', '1')->get(); */
         
-    $query = Question::where('id', '=', '1')->get();
+    $query = Question::find(1);
     $view = view('questions\show');
-    $view->content = $query;
+    $view->question = $query;
     return $view;
 
     }
