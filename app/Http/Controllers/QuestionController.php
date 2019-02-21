@@ -10,8 +10,13 @@ class QuestionController extends Controller
 {
     public function index()
     {
+
+
+       
         $query =  Question::orderBy('created_at', 'asc')->get();
-        dd($query);
+        $view = view('questions/index');
+        $view->content = $query;
+        return $view;
     }
 
     public function show()
