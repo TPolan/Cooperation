@@ -4,20 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use \App\Question;
 
 class QuestionController extends Controller
 {
     public function index()
     {
-        $query = DB::table('questions')->orderBy('created_at', 'asc')->get();
+        $query =  Question::orderBy('created_at', 'asc')->get();
         dd($query);
     }
 
     public function show()
     {
-        $query = DB::table('answers')->where('question_id', '=', '1')->get();
+        \App\Answer::where('question_id', '=', '1')->get();
         
-        $query = DB::table('questions')->where('id', '=', '1')->get();
+    $query = Question::where('id', '=', '1')->get();
         dd($query);
     }
 }
