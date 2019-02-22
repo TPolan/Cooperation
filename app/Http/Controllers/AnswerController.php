@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Answer;
 class AnswerController extends Controller
 {
-    public function show()
+    public function show($id)
     {
-        $answer = Answer::find(1);
+        $answer = Answer::find($id);
         
         return view('answers/show', compact('answer'));
     }

@@ -17,11 +17,11 @@ class QuestionController extends Controller
         return $view;
     }
 
-    public function show()
+    public function show($id)
     {
-/*         \App\Answer::where('question_id', '=', '1')->get(); */
+        // \App\Answer::where($id)->get();
         
-    $query = Question::find(1);
+    $query = Question::find($id);
     $view = view('questions\show');
     $view->question = $query;
     return $view;
